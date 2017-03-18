@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My advertise</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="css/mystyle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="example.js"></script>
+    <script type="text/javascript">
+
+        //#advertisement is used as id which is doing the main work.
+        //$( document ).ready(function()  will connects the page to another page i.e example.js
+
+        $(document).ready(function () {
+            $c=0;
+            $i=1;
+            $j=1;
+            $loopvar=3;
+            checkIndex();
+            nextIndex();
+            //$("#changeData").attr('disabled','disabled');
+            $value=null;
+            function getLoopvar()
+            {
+                if($c<3)
+                {
+                    if($c%3==2)
+                    {
+                        $("#changeData").attr('disabled','disabled');
+                        return 2;
+                    }
+                    else
+                    {
+                        $("#changeData").attr('disabled','disabled');
+                        return 1;
+                    }
+                }
+                else{
+                    return 3;
+                }
+            }
+            $("#advertisement").change(function () {
+                $i=1;
+                $value = $(this).val();
+                $c=getCount($value);
+                checkIndex();
+                console.log($c);
+                $loopvar=getLoopvar();
+                getValues($value, $loopvar, 1);
+                //$("#changeData").html(value);
+                $i++;
+                $j++
+                $("#changeData").removeAttr('disabled');
+                nextIndex();
+            });
+            $("#changeData").click(function () {
+                //var value = $(this).val();
+                $c=$c-3;
+                nextIndex();
+                console.log($c);
+                $loopvar=getLoopvar();
+                getValues($value, $loopvar, $i);
+                $("#previousData").removeAttr('disabled');
+
+                $i++;
+                $j++
+            });
+            $("#previousData").click(function () {
+                        //var value = $(this).val();
+                $i=$i-2;
+                console.log("OUTPUT: " + $i);
+                $c=$c+3;
+                $loopvar=getLoopvar();
+                getValues($value,$loopvar , $i);
+                $("#changeData").removeAttr('disabled');
+                checkIndex();
+                $i++;
+                $j--;
+
+            });
+            function checkIndex(){
+                if($i==1)
+                    $("#previousData").attr('disabled','disabled');
+            }
+
+            function nextIndex(){
+                if($c==0 || $c==3)
+                {
+                    $("#changeData").attr('disabled','disabled');
+                }
+            }
+
+        });
+
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container-fluid">
+
+        <button type="button" class="navbar-toggle collapsed" class="navbar-brand"data-toggle="collapse"
+                data-target="#bs-WDM-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+
+        </button>
+        <a class="navbar-brand" href="a">Abhishek ADV</a>
+        <div class="collapse navbar-collapse navbar-right" id="bs-WDM-navbar-collapse-1">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav nav-tabs">
+                    <li><a href="file:///home/abhishek/mobile-app/CA/www/index.html">Home</a></li>
+                    <li><a href="#">contact</a></li>
+                    <li><a href="newsadd.html">Submit a Free Ad</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+        </head>
+        </html>
+    </div>
+</nav>
+<div class="page-header">
+    <h4 class="text-success">Buy and sell near you.
+        <small class="alert-danger">Best place to buy and sell.</small>
+    </h4>
+</div>
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <label for="Advertisement" class="bg-primary success">All categories:</label><br>
+        <select class="form-control" name="Advertisement" id="advertisement" onchange="getValues(this)">
+            <option value="" class="text-primary">Select Category</option>
+            <option value="car" class="alert-info">Car</option>
+            <option value="bike" class="alert-danger">Bike</option>
+            <option value="home" class="text-primary">House</option>
+            <option value="laptop" class="text-success">Laptop</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
+<br/>
+<div id="advertisementDisplay">
+
+</div>
+
+
+<div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default"  id="previousData" >previous</button>
+    <button type="button" class="btn btn-default" id="changeData" >Next</button>
+    </div>
+
+
+<footer class="footer" style="background:blue" >
+            <div class="container" >
+                <p class="text-muted text-center">@copyright Abhishek ADV</p>
+            </div>
+</footer>
+
+</div>
+
+
+
+</body>
+</html>

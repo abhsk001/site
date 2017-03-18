@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+Here I am
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>HOME</title>
+    <!-- Bootstrap Styles-->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="css/mystyle.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="jquery/jquery.min.js"></script>
+    <script src="js/ajax/SDAS.js"></script>
+    <script src="js/ajax/SDAS.js"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-default top-navbar" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><i class="fa fa-gear"></i> <strong>My Project</strong></a>
+    </div>
+
+</nav>
+<div class="container">
+    <form role="form" novalidate>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" id="Name" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+            <label>Adress</label>
+            <input class="form-control" id="Adress" placeholder="Enter unit">
+
+            <p class="help-block">For example, kg, litre, piece</p>
+        </div>
+        <div class="row hidden">
+            <input id="identity" class="form-control no-radius"/>
+        </div>
+        <div class="form-group">
+            <label>phone number</label>
+
+            <div class="radio" id="itemType">
+                <label>
+                    <input type="radio" name="optionsRadios" id="9824870950" value="Saleable">Saleable
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="99999999" value="Non-saleable"  checked="checked">Non-saleable
+                </label>
+            </div>
+            <p class="help-block">For example, Pizza is saleable whereas Lassi Cup is non-salable.</p>
+        </div>
+        <div class="form-group">
+            <label>Item Nature</label>
+
+            <div class="radio" id="itemNature">
+                <label>
+                    <input type="radio" name="optionsRadio" id="Raw" value="Raw" checked="">Raw
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadio" id="Solid" value="Solid">Solid
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Item Description</label>
+            <textarea class="form-control" rows="3" id="itemDescription" placeholder="Optional"></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn" onclick="addItem()" class="btn btn-default">Submit</button>
+        <button type="reset" class="btn btn-default">Cancel</button>
+    </form>
+</div>
+</body>
+</html>
